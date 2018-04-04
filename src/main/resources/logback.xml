@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="3 seconds">
+
+    <appender name="stdout" class="com.gengbo.log.appender.MyConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}[%L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="myAppender" class="com.gengbo.log.appender.MyAppender">
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}[%L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.gengbo.log" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="stdout"/>
+    </logger>
+
+    <logger name="com.gengbo.log.suba" level="INFO" additivity="false">
+        <appender-ref ref="myAppender"/>
+    </logger>
+    <logger name="com.gengbo.log.subb" level="INFO" >
+        <appender-ref ref="myAppender"/>
+    </logger>
+
+    <root level="INFO">
+        <!--<appender-ref ref="stdout" />-->
+        <appender-ref ref="stdout"/>
+    </root>
+
+</configuration>
